@@ -1,10 +1,9 @@
 # wxml-jump-to-component
 
-**Jump to custom components in WeChat mini program wxml by command+click**
+**Jump to custom components in WeChat mini program wxml by command + click**
 
 1.Plugin configuration
-
-There is only one configuration 'wxml dump to component. lias', for example:
+- 'wxml-jump-to-component.alias', for example:
 ```json
   "wxml-jump-to-component.alias": {
     "@src": "./src",
@@ -17,8 +16,13 @@ There is only one configuration 'wxml dump to component. lias', for example:
     "@template": "./src/template"
   },
 ```
-Open vscode settings.json and configure the correct path alias as shown in the code above.
+- 'wxml-jump-to-component.openFileExtension', for example:
 
-2.Then you can use it
+```json
+  // The default file types to open, js / ts / wxml / wxss / scss / other file types with the same name as the component. The modules under node_modules default to opening the js file corresponding to the path.
+  "wxml-jump-to-component.openFileExtension": "ts",
+```
 
-**Currently, component redirection in template templates is not supported because there is no JSON file available, so component paths cannot be obtained**
+2.then you can use it
+
+**⚠️ Currently, component redirection in template templates is not supported because there is no JSON file available, so component paths cannot be obtained**

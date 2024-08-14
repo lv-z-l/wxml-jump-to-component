@@ -30,7 +30,7 @@ const getCompLocation = async (componentName: string, document: vscode.TextDocum
         vscode.workspace.workspaceFolders?.[0].uri.path || '',
         compImportPath,
         uri.path,
-        pluginConfig.alias
+        pluginConfig
     );
     if (!resolvedPath) {
         return;

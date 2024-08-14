@@ -34,6 +34,11 @@
           "type": "object",
           "default": {},
           "description": "dir alias"
+        },
+        "wxml-jump-to-component.openFileExtension": {
+          "type": "string",
+          "default": "ts",
+          "description": "The default file types to open, js/ts/wxml/other file types with the same name as the component. The modules under node_modules default to opening the js file corresponding to the path."
         }
       }
     }
