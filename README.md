@@ -1,23 +1,24 @@
-# wxml-jump-to-component README
+# wxml-jump-to-component
 
-**Navigate to WeChat Mini Program custom components from WXML files!**
+**Jump to custom components in WeChat mini program wxml by command+click**
 
-1.configure the extension
-  only one setting `wxml-jump-to-component.alias`, like this:
-  ```json
+1.Plugin configuration
+
+There is only one configuration 'wxml dump to component. lias', for example:
+```json
   "wxml-jump-to-component.alias": {
-      "@src": "./src",
-      "@account": "./src/account",
-      "@sdk": "./src/sdk",
-      "@components": "./src/components",
-      "@components-biz": "./src/components-biz",
-      "@utils": "./src/utils",
-      "@assets": "./src/assets",
-      "@template": "./src/template"
+    "@src": "./src",
+    "@account": "./src/account",
+    "@sdk": "./src/sdk",
+    "@components": "./src/components",
+    "@components-biz": "./src/components-biz",
+    "@utils": "./src/utils",
+    "@assets": "./src/assets",
+    "@template": "./src/template"
   },
-  ```
-  open vscode settings.json and config it like the above code.
+```
+Open vscode settings.json and configure the correct path alias as shown in the code above.
 
-2.open a WXML file to test it
+2.Then you can use it
 
-**Enjoy!**
+**Currently, component redirection in template templates is not supported because there is no JSON file available, so component paths cannot be obtained**
