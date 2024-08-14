@@ -2,6 +2,7 @@
   "name": "wxml-jump-to-component",
   "displayName": "wxml-jump-to-component",
   "description": "Navigate to WeChat Mini Program custom components from WXML files",
+  "icon": "./icon.png",
   "publisher": "lvzl",
   "version": "0.0.1",
   "engines": {
