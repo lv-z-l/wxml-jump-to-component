@@ -16,7 +16,7 @@
       "@template": "./src/template"
   },
   ```
-  open vscode settings.json and copy the above code to it.
+  open vscode settings.json and config it like the above code.
 
 2.open a WXML file to test it
 
