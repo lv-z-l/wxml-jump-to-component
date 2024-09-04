@@ -2,6 +2,8 @@ import * as vscode from 'vscode';
 import { resolvePath } from './utils/path-resolve';
 import { getComponentNameAtPosition } from './utils/wxml-parser';
 import { isMiniPresetComponent } from './constant';
+import path from 'path';
+import { createComponent, createPage } from './utils/create-file';
 
 async function readJsonFromUri(path: string): Promise<any> {
     try {
@@ -38,6 +40,22 @@ const getCompLocation = async (componentName: string, document: vscode.TextDocum
     return new vscode.Location(vscode.Uri.file(resolvedPath), new vscode.Position(0, 0));
 };
 
+async function getInputName(type: 0 | 1 = 0) {
+    const fileName = await vscode.window.showInputBox({
+        prompt: `Enter the name of the new ${type ? 'component' : 'page'}`,
+        placeHolder: `New${type ? 'Component' : 'Page'}`
+    });
+    if(fileName) {
+        if(/^[a-z]+(-[a-z]+)*$/.test(fileName)) {
+            return fileName;
+        }
+        vscode.window.showErrorMessage('Invalid name.');
+    } else {
+        vscode.window.showErrorMessage('canceled.');
+        return;
+    }
+}
+
 export function activate(context: vscode.ExtensionContext) {
     const provider = {
         provideDefinition(
@@ -56,6 +74,27 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.languages.registerDefinitionProvider({ scheme: 'file', language: 'wxml' }, provider)
     );
+
+    let createComponentCommand = vscode.commands.registerCommand('extension.createComponent', async (uri: vscode.Uri) => {
+        const fileName = await getInputName(1);
+        if (!fileName) {
+            return;
+        }
+        createComponent(`${uri.path}/${fileName}`);
+    });
+
+    let createPageCommand = vscode.commands.registerCommand('extension.createPage', async (uri: vscode.Uri) => {
+        const fileName = await getInputName();
+        if (!fileName) {
+            return;
+        }
+        createPage(`${uri.path}/${fileName}`);
+    });
+
+    context.subscriptions.push(createComponentCommand);
+    context.subscriptions.push(createPageCommand);
 }
 
-export function deactivate() {}
+
+export function deactivate() {
+}

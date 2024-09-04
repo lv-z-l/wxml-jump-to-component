@@ -58,6 +58,63 @@ export const wechatMiniProgramComponents = [
 ];
 
 
+export const PageContent = [
+  {ext: 'wxml', content: ``},
+  {ext: 'ts', content: `import wrapPage from '@utils/page';
+wrapPage({
+    data: {
+
+    },
+    onLoad(query) {
+        
+    },
+    onShow() {
+        
+    },
+    onHide() {
+        
+    },
+    onUnload() {
+        
+    },
+    onShareAppMessage() {
+        
+    },
+})`},
+  {ext: 'json', content: `{
+    "usingComponents": {},
+    "navigationStyle": "navigationStyle",
+    "navigationBarTitleText": "navigationBarTitleText"
+}`},
+  {ext: 'scss', content: ``}
+];
+
+export const ComponentContent = [
+  {ext: 'wxml', content: ``},
+  {ext: 'ts', content: `Component({
+    options: {
+        pureDataPattern: /^_/,
+    },
+    behaviors: [],
+    properties: {},
+    observers: {},
+    lifetimes: {
+        attached() {},
+        detached() {},
+    },
+    pageLifetimes: {
+        show() {},
+        hide() {},
+    },
+    data: {},
+    methods: {},
+});`},
+  {ext: 'json', content: `{
+    "usingComponents": {}
+}`},
+  {ext: 'scss', content: ``}
+];
+
 export function isMiniPresetComponent(name: string) {
     return wechatMiniProgramComponents.includes(name);
 }

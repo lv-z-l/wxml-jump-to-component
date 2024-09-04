@@ -4,7 +4,7 @@
   "description": "Navigate to WeChat Mini Program custom components from WXML files",
   "icon": "jump.png",
   "publisher": "lvzl",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -14,6 +14,26 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+    "commands": [
+      {
+        "command": "extension.createComponent",
+        "title": "New Component"
+      },
+      {
+        "command": "extension.createPage",
+        "title": "New Page"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.createComponent"
+        },
+        {
+          "command": "extension.createPage"
+        }
+      ]
+    },
     "languages": [
       {
         "id": "wxml",
@@ -34,6 +54,11 @@
           "type": "object",
           "default": {},
           "description": "dir alias"
+        },
+        "wxml-jump-to-component.createFileExtension": {
+          "type": "array",
+          "default": ["wxml", "ts", "scss", "json"],
+          "description": "The default file extension to create, default [\"wxml\", \"ts\", \"scss\", \"json\"]"
         },
         "wxml-jump-to-component.openFileExtension": {
           "type": "string",
