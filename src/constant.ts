@@ -1,3 +1,5 @@
+import * as vscode from 'vscode';
+
 export const wechatMiniProgramComponents = [
   // 基础视图
   "view",
@@ -58,7 +60,7 @@ export const wechatMiniProgramComponents = [
 ];
 
 
-export const PageContent = [
+const DEFAULT_PAGE_CONTENT = [
   {ext: 'wxml', content: ``},
   {ext: 'ts', content: `import wrapPage from '@utils/page';
 wrapPage({
@@ -89,7 +91,7 @@ wrapPage({
   {ext: 'scss', content: ``}
 ];
 
-export const ComponentContent = [
+const DEFAULT_COMP_CONTENT = [
   {ext: 'wxml', content: ``},
   {ext: 'ts', content: `Component({
     options: {
@@ -114,6 +116,12 @@ export const ComponentContent = [
 }`},
   {ext: 'scss', content: ``}
 ];
+
+export const getContent = ((page: 0 | 1 = 0) => {
+  const pluginConfig = vscode.workspace.getConfiguration('wxml-jump-to-component');
+  const exts: string[] = pluginConfig.get('createFileExtension') || [];
+  return page ? DEFAULT_PAGE_CONTENT.map((item, i) => ({...item, ext: exts[i]})) : DEFAULT_COMP_CONTENT.map((item, i) => ({...item, ext: exts[i]}));
+});
 
 export function isMiniPresetComponent(name: string) {
     return wechatMiniProgramComponents.includes(name);

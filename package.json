@@ -4,7 +4,7 @@
   "description": "Navigate to WeChat Mini Program custom components from WXML files",
   "icon": "jump.png",
   "publisher": "lvzl",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -58,7 +58,7 @@
         "wxml-jump-to-component.createFileExtension": {
           "type": "array",
           "default": ["wxml", "ts", "scss", "json"],
-          "description": "The default file extension to create, default [\"wxml\", \"ts\", \"scss\", \"json\"]"
+          "description": "The default file extension to create, default [\"wxml\", \"ts\", \"json\", \"scss\"]"
         },
         "wxml-jump-to-component.openFileExtension": {
           "type": "string",

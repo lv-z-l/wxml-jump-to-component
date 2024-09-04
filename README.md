@@ -18,6 +18,15 @@ example:
     "@template": "./src/template"
   },
 ```
+
+### wxml-jump-to-component.createFileExtension
+example:
+
+```json
+  "wxml-jump-to-component.createFileExtension": ["wxml", "ts", "json", "scss"],
+```
+sort is important!
+
 ### wxml-jump-to-component.openFileExtension
 example:
 

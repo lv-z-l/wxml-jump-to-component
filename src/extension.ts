@@ -2,7 +2,6 @@ import * as vscode from 'vscode';
 import { resolvePath } from './utils/path-resolve';
 import { getComponentNameAtPosition } from './utils/wxml-parser';
 import { isMiniPresetComponent } from './constant';
-import path from 'path';
 import { createComponent, createPage } from './utils/create-file';
 
 async function readJsonFromUri(path: string): Promise<any> {
