@@ -1,6 +1,8 @@
 # wxml-jump-to-component
 
-**Jump to custom components in WeChat mini program wxml by command + click**
+**Main features**
+1. In wxml files, command+click on a custom component can automatically open the corresponding file of the custom component.
+2. Right-click on any folder in the workspace floder, you can quickly create Page, Component.
 
 ## Plugin configuration
 ### wxml-jump-to-component.alias
